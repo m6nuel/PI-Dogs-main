@@ -24,6 +24,9 @@ module.exports = (sequelize) => {
     },
     AñosDeVida: {
       type: DataTypes.STRING,
+    },
+    Image: {
+      type: DataTypes.BLOB,
     }
   },{
     timestamps: false,
