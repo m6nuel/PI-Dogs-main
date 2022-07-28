@@ -11,7 +11,7 @@ module.exports = (sequelize) => {
       allowNull: false,
       unique: 'productIdUnique',
       get(){
-        return `${this.getDataValue('number')}-db`
+        return `${this.getDataValue('id')}-db`
       }
     },
     Nombre: {
