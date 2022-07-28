@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { getApiAndDb } = require('../controllers/getApiAndDb');
-const { getApiByName } = require('../controllers/getApiByName');
+// const { getApiByName } = require('../controllers/getApiByName');
 const router = Router();
 
 router.get('/', async ( req, res ) => {
@@ -16,19 +16,6 @@ router.get('/', async ( req, res ) => {
             res.send(e);
         }
     }
-
-        
-
-
-
-    // if(name){
-    //     try {
-    //         let data = await getApiByName(name); 
-    //         res.json( data ? data : "No se encontro esa Raza de Perro");
-    //     } catch(e){
-    //         res.send(e);
-    //     }        
-    // }
 });
 
 
