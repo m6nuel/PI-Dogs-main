@@ -1,4 +1,4 @@
-const { Raza, Temperamento } = require('sequelize');
+const { Raza, Temperamento } = require("../db");
 
 const getDogsDb = async () => {
     return await Raza.findAll({

@@ -1,17 +1,18 @@
 const { getApi } = require("./getApi");
-const { Raza, Temperamento } = require("../db");
+// const { Raza, Temperamento } = require("../db");
+const { getDogsDb } = require("./getDogsDb");
 
-const getDogsDb = async () => {
-    return await Raza.findAll({
-        include: {
-            model: Temperamento,
-            attributes: ['Nombre'],
-            through: {
-                attributes: [],
-            }
-        }
-    })
-}
+// const getDogsDb = async () => {
+//     return await Raza.findAll({
+//         include: {
+//             model: Temperamento,
+//             attributes: ['Nombre'],
+//             through: {
+//                 attributes: [],
+//             }
+//         }
+//     })
+// }
 
 const getApiAndDb = async () => {
     const dataApi = await getApi();
