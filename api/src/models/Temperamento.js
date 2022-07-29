@@ -4,11 +4,15 @@ module.exports = (sequelize) => {
     // defino el modelo
     sequelize.define('Temperamento', {
         id: {
-            type: DataTypes.UUID,
-            defaultValue: DataTypes.UUIDV4,
-            allowNull: false,
+            type: DataTypes.INTEGER,
             primaryKey: true,
-        },
+            autoIncrement: true,
+            allowNull: false,
+            unique: 'productIdUnique',
+            get(){
+              return `${this.getDataValue('id')}-dbt`
+            }
+          },
         Nombre: {
             type: DataTypes.STRING,
             allowNull: false,

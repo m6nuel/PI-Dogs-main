@@ -5,6 +5,7 @@ const getDogs = require('./getDogs');
 const dogsQuery = require('./dogsQuery');
 const getDogsId = require('./getDogsId');
 const createDog = require('./createDog');
+const getTemperaments = require('./getTemperaments');
 
 const router = Router();
 
@@ -15,5 +16,6 @@ router.use('/dogs', getDogs);
 router.use('/dog', dogsQuery);
 router.use('/dog', getDogsId);
 router.use('/dogs', createDog);
+router.use('/dogs', getTemperaments)
 
 module.exports = router;

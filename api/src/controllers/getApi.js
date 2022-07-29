@@ -11,14 +11,14 @@ const getApi = async () => {
     let dataApi = await axios.get(url);
     
     dataApi.data.map((dog) =>{
-        let temperamentArr = [];
+        let Temperamento = [];
         if (dog.temperament) {
-            temperamentArr = dog.temperament.split(", ");
+            Temperamento = dog.temperament.split(", ");
         }
         dogs.push({
             id: dog.id,
             Nombre: dog.name,
-            temperamentArr,
+            Temperamento,
             Peso: dog.weight,
             Imagen: dog.image.url
         })

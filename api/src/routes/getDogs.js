@@ -6,10 +6,9 @@ const router = Router();
 router.get('/', async ( req, res ) => {
     try {
         let data = await getApiAndDb();
-        res.json(data)
-        console.log(data)
+        res.json(data);
     } catch (e) {
-        res.send(e)
+        res.send(e);
     }
 });
 
