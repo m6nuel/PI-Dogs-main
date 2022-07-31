@@ -15,11 +15,19 @@ const getApi = async () => {
         if (dog.temperament) {
             Temperamento = dog.temperament.split(", ");
         }
+        let Altura = [];
+        if (dog.height.metric) {
+            Altura = dog.height.metric.split(" - ");
+        }
+        let Peso = [];
+        if (dog.weight.metric) {
+            Peso = dog.weight.metric.split(" - ");
+        }
         dogs.push({
             id: dog.id,
             Nombre: dog.name,
             Temperamento,
-            Peso: dog.weight,
+            Peso,
             Imagen: dog.image.url
         })
     })

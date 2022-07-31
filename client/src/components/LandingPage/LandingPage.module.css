@@ -1,0 +1,30 @@
+.container{
+    background-image: url("./imagen/20118-perritos.jpg");
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;    
+    background-position-y: center;
+}
+
+.boton{
+    cursor: pointer; 
+    border: none;
+    position: relative;
+    margin-top: 22rem;
+    margin-left: 34rem;
+    color: rgb(24, 14, 1);
+    border-radius: 35px;
+    width: 20%;
+    max-width: 370px;
+    font-size: 1.2rem; 
+    background: transparent;
+    padding: 0.65rem 0.6rem;
+    transition: color 0.5s linear;
+    border: 0.1rem solid #987257;
+    outline: 0.1rem solid #e49c68;
+    text-shadow: 0 0 3px #987257;
+}
+
+.button:hover{
+    color: transparent;
+}
