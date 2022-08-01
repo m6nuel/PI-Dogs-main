@@ -1,0 +1,25 @@
+.conteiner {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.card {
+    background-color: rgb(124, 232, 117);
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    margin: 2px;
+}
+
+.img img{
+    background-color: aquamarine;
+    height: 120px;
+    background-size: cover;
+    margin: auto;
+    border-radius: 15px;
+}
+
+p {
+    margin: 0;
+}
