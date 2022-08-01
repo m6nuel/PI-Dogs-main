@@ -1,8 +1,13 @@
 import React from 'react';
 import { Card } from '../Card';
 import style from './Home.module.css';
+import { useSelector } from "react-redux";
 
 export const Home = () => {
+
+  const allDogs = useSelector( state => state.dogs )
+  console.log(allDogs)
+
   return (
     <div className={`${ style.contenedor }`}>
       <div className={`${style.navbar}`}>
@@ -15,14 +20,13 @@ export const Home = () => {
 
       <div className={`${ style.main }`}>
         <h3 className={`${ style.titulo }`}>Listado de razas de Perro</h3>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />    
-        <Card />  
+          {
+            allDogs?.map( (dog) => {
+              return(
+                <Card key={dog.id} image={dog.Imagen} nombre={dog.Nombre} peso={dog.Peso[0]}/>
+              )
+            })
+          }
         <div className={`${ style.paginacion }`}>
           paginacion
         </div>  

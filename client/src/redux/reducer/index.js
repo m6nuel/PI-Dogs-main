@@ -1,7 +1,7 @@
 import { GET_ALL_DOGS } from "../types";
 
 const initialState = {
-    allDogs: []
+    dogs: []
 };
 
 export default function rootReducers  ( state = initialState, { type, payload } ) {
@@ -9,7 +9,7 @@ export default function rootReducers  ( state = initialState, { type, payload } 
         case GET_ALL_DOGS:
             return {
                 ...state,
-                allDogs: payload
+                dogs: payload
             }
             
     
