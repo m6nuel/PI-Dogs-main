@@ -1,20 +1,17 @@
 import axios from 'axios';
-import { types } from '../types';
+import { GET_ALL_DOGS } from '../types';
 
 const url = 'http://localhost:3001';
 
-export function starGetAllDogs() {
+export const getAllDogs = () => {
     return async function(dispatch) {
       var dogs = await axios.get(`${url}/dogs`);
       
       console.log(dogs)
       return dispatch({
-        type: types.getAllDogs,
+        type: GET_ALL_DOGS,
         payload: dogs.data
       })
     }
   };
 
-  export const getAllDogs = () => ({
-    type: types.getAllDogs, 
-  })

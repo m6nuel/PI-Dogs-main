@@ -1,15 +1,15 @@
-import { types } from "../types";
+import { GET_ALL_DOGS } from "../types";
 
 const initialState = {
     allDogs: []
 };
 
-export const rootReducers = ( state = initialState, action ) => {
-    switch (action.types) {
-        case types.getAllDogs:
+export default function rootReducers  ( state = initialState, { type, payload } ) {
+    switch (type) {
+        case GET_ALL_DOGS:
             return {
                 ...state,
-                allDogs: action.payload
+                allDogs: payload
             }
             
     
