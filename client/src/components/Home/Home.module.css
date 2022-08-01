@@ -1,0 +1,40 @@
+.contenedor {
+    background-image: url("../LandingPage/imagen/20098-perritos.jpg");
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;    
+    background-position-y: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 10vh 1fr 1fr 5vh;    
+}
+
+.navbar:first-child {
+    grid-column: 1/5;
+}
+
+.sidebar:nth-child(2) {
+    grid-row: 2 / span 2;
+}
+
+.main:nth-child(3) {
+    grid-column: 2 / span 3 ;
+    grid-row: 2 / span 2;    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 5vh 1fr 1fr 5vh;   
+}
+
+.titulo:first-child {
+    grid-column: 1 / 5;
+    margin: 0;
+}
+
+.paginacion {
+    grid-column: 1 / 5;
+    margin: 0;
+}
+
+.footer:nth-child(4) {
+    grid-column: 1/5
+}
