@@ -29,6 +29,7 @@
     grid-column: 1 / 5;
     margin: 0;
 }
+/* implementar un tamaño fijo al grid */
 
 .paginacion {
     grid-column: 1 / 5;
