@@ -1,4 +1,4 @@
-import { GET_ALL_DOGS, GET_ALL_TEMPERAMENTS, SEARCH_DOGS } from "../types";
+import { GET_ALL_DOGS, GET_ALL_TEMPERAMENTS, ORDER_ALPH, SEARCH_DOGS } from "../types";
 
 const initialState = {
     dogs: [],
@@ -21,6 +21,32 @@ export default function rootReducers  ( state = initialState, { type, payload } 
             return {
                 ...state,
                 dogs: payload
+            }
+        case ORDER_ALPH:
+            const dogOrder = (payload === 'az')
+                                ?
+                            state.dogs.sort((a,b) => {
+                                if (a.Nombre > b.Nombre) {
+                                    return 1;
+                                }
+                                if (a.Nombre < b.Nombre) {
+                                    return -1;
+                                }
+                                return 0;
+                            })
+                                :
+                            state.dogs.sort((a,b) => {
+                                if (a.Nombre > b.Nombre) {
+                                    return -1;
+                                }
+                                if (a.Nombre < b.Nombre) {
+                                    return 1;
+                                }
+                                return 0;
+                            });
+            return{
+                ...state,
+                dogs: dogOrder
             }
             
     

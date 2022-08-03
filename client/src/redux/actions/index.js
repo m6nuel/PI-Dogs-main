@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_ALL_DOGS, GET_ALL_TEMPERAMENTS, SEARCH_DOGS } from '../types';
+import { GET_ALL_DOGS, GET_ALL_TEMPERAMENTS, ORDER_ALPH, SEARCH_DOGS } from '../types';
 
 const url = 'http://localhost:3001';
 
@@ -39,4 +39,11 @@ export const searchDogs = (raza) => {
     }
   }
 };
+
+export const orderAlpha = ( payload ) => {
+  return {
+    type: ORDER_ALPH,
+    payload
+  }
+}
 

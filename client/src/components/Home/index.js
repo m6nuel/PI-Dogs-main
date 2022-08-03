@@ -3,12 +3,14 @@ import { Card } from '../Card';
 import style from './Home.module.css';
 import { useDispatch, useSelector } from "react-redux";
 import { SearchDogs } from '../SearchDogs';
-import { getAllDogs, getTemperaments } from '../../redux/actions';
+import { getAllDogs, getTemperaments, orderAlpha } from '../../redux/actions';
+import { Paginate } from '../Paginate';
 
 export const Home = () => {
 
   const dogs = useSelector( state => state.dogs );
   const [pag, setPag] = useState(0);
+  const dogsPag = 8;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,6 +35,15 @@ export const Home = () => {
     setPag( pag - 8 );
   }
 
+  const handleSelect = (e) => {
+    e.preventDefault();
+    dispatch(orderAlpha(e.target.value))
+  }
+
+  const pags = (num) => {
+    setPag(num)
+  }
+
   return (
     <div className={`${ style.contenedor }`}>
       <div className={`${style.navbar}`}>
@@ -40,7 +51,17 @@ export const Home = () => {
       </div>
 
       <div className={`${ style.sidebar }`}>
-        sidebar
+      <select onChange={ handleSelect }>
+            <option defaultValue>
+                Orden Alfabetico
+            </option>
+            <option value='az'>
+                Ascendente A a la Z
+            </option>
+            <option value='za'>
+                Descendente Z a la A
+            </option>
+        </select>
       </div>
 
       <div className={`${ style.main }`}>
@@ -59,6 +80,7 @@ export const Home = () => {
             anterior
           </button>
           &nbsp;
+          <Paginate dogsPag={ dogsPag } dogs={ dogs.length } pags={ pags } />
           <button
             onClick={ nextPag }
           >
