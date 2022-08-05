@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import style from './paginate.module.css';
 
 export const Paginate = ({dogsPag, dogs, pags}) => {
     const pagNumb = [];
-    for (let i = 0; i < Math.ceil(dogs / dogsPag); i++) {
+    for (let i = 1; i < Math.ceil(dogs / dogsPag); i++) {
         pagNumb.push(i);        
     }
   return (
@@ -10,7 +11,7 @@ export const Paginate = ({dogsPag, dogs, pags}) => {
         <ul>
             {
                 pagNumb && pagNumb.map( num => (
-                    <li onClick={() => pags(num)} key={num}>
+                    <li className={`${ style.li }`} onClick={() => pags(num)} key={num}>
                         <button type='button'>
                             {num}
                         </button>

@@ -7,23 +7,30 @@ import { getAllDogs, getTemperaments, orderAlpha } from '../../redux/actions';
 import { Paginate } from '../Paginate';
 
 export const Home = () => {
-
-  const dogs = useSelector( state => state.dogs );
-  const [pag, setPag] = useState(0);
-  const dogsPag = 8;
   const dispatch = useDispatch();
-
+  const auxDogs = useSelector( state => state.dogs );
+  // const dogs = useSelector( state => state.dogs );
+  // const temps = useSelector( state => state.temperaments );
+  const [pag, setPag] = useState(1);
+  const dogsPag = 8;
+  const lastIndex = pag * dogsPag;
+  const firstIndex = lastIndex - dogsPag;
+  const pageDogs = auxDogs.slice( firstIndex, lastIndex );
+  
+  const pags = (num) => {
+    setPag(num)
+  }
+  
   useEffect(() => {
     dispatch(getAllDogs());
     dispatch(getTemperaments());
   }, [dispatch])
 
 
-  const pageDogs = (dogs.slice(pag, pag + 8));
 
   
   const nextPag = () => {
-    if (dogs.length > pag + 8) {
+    if (auxDogs.length > pag + 8) {
       setPag( pag + 8 );
     }
   }
@@ -40,9 +47,6 @@ export const Home = () => {
     dispatch(orderAlpha(e.target.value))
   }
 
-  const pags = (num) => {
-    setPag(num)
-  }
 
   return (
     <div className={`${ style.contenedor }`}>
@@ -79,8 +83,7 @@ export const Home = () => {
           >
             anterior
           </button>
-          &nbsp;
-          <Paginate dogsPag={ dogsPag } dogs={ dogs.length } pags={ pags } />
+          <Paginate dogsPag={ dogsPag } dogs={ auxDogs.length } pags={ pags } />
           <button
             onClick={ nextPag }
           >
