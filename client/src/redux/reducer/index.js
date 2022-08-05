@@ -1,4 +1,4 @@
-import { GET_ALL_DOGS, GET_ALL_TEMPERAMENTS, ORDER_ALPH, SEARCH_DOGS } from "../types";
+import { FILTER_TEMPS, GET_ALL_DOGS, GET_ALL_TEMPERAMENTS, ORDER_ALPH, SEARCH_DOGS } from "../types";
 
 const initialState = {
     dogs: [],
@@ -49,6 +49,25 @@ export default function rootReducers  ( state = initialState, { type, payload } 
             return{
                 ...state,
                 dogs: dogOrder
+            }
+        case FILTER_TEMPS:
+            const allDogs = state.auxDogs;
+            let filterTemps = [];
+            if (payload === 'all') {
+                filterTemps = allDogs;
+            } else {
+                for (let i = 0; i < allDogs.length; i++) {
+                    let filter = allDogs[i].Temperamento.find( t => t === payload );
+                    if (filter) {
+                        filterTemps.push(allDogs[i]);
+                    }
+                    
+                }
+            }
+            console.log(filterTemps)
+            return {
+                ...state,
+                dogs: filterTemps
             }
             
     

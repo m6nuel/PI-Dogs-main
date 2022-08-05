@@ -4,6 +4,7 @@ import style from './Home.module.css';
 import { useDispatch, useSelector } from "react-redux";
 import { SearchDogs } from '../SearchDogs';
 import { 
+  filterTemps,
   getAllDogs, 
   getTemperaments, 
   orderAlpha } from '../../redux/actions';
@@ -39,6 +40,11 @@ export const Home = () => {
     setOrden(`Ordenado ${e.target.value}`);
   };
 
+  const handleFilterTemps = (e) => {
+    e.preventDefault();
+    dispatch( filterTemps(e.target.value) );
+  }
+
   
   const nextPag = () => {
     if (auxDogs.length > pag + 8) {
@@ -73,7 +79,7 @@ export const Home = () => {
                 Descendente Z a la A
             </option>
         </select>
-        <select>
+        <select onChange={ handleFilterTemps }>
           <option>
             Temperamentos
           </option>
