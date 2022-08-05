@@ -91,7 +91,12 @@ export const Home = () => {
           {
             pageDogs?.map( (dog) => {
               return(
-                <Card key={dog.id} image={dog.Imagen} nombre={dog.Nombre} peso={dog.Peso[0]} temperamento={ dog.Temperamento }/>
+                <Card 
+                  key={dog.id} 
+                  image={dog.Imagen} 
+                  nombre={dog.Nombre} 
+                  peso={dog.Peso[0]} 
+                  temperamento={ dog.Temperamento[0].Nombre ? dog.Temperamento.map( t => t.Nombre) : dog.Temperamento }/>
               )
             })            
           }
