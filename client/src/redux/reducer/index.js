@@ -31,7 +31,7 @@ export default function rootReducers  ( state = initialState, { type, payload } 
                                 if (a.Nombre > b.Nombre) {
                                     return 1;
                                 }
-                                if (a.Nombre < b.Nombre) {
+                                if (b.Nombre > a.Nombre) {
                                     return -1;
                                 }
                                 return 0;
@@ -41,7 +41,7 @@ export default function rootReducers  ( state = initialState, { type, payload } 
                                 if (a.Nombre > b.Nombre) {
                                     return -1;
                                 }
-                                if (a.Nombre < b.Nombre) {
+                                if (b.Nombre < a.Nombre) {
                                     return 1;
                                 }
                                 return 0;
