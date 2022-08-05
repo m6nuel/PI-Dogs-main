@@ -13,7 +13,7 @@ export const Home = () => {
   const dispatch = useDispatch();
   const auxDogs = useSelector( state => state.dogs );
   // const dogs = useSelector( state => state.dogs );
-  // const temps = useSelector( state => state.temperaments );
+  const temps = useSelector( state => state.temperaments );
   const [pag, setPag] = useState(1);
   const dogsPag = 8;
   const lastIndex = pag * dogsPag;
@@ -36,7 +36,8 @@ export const Home = () => {
   const handleSelect = (e) => {
     e.preventDefault();
     dispatch(orderAlpha(e.target.value))
-  }
+    setOrden(`Ordenado ${e.target.value}`);
+  };
 
   
   const nextPag = () => {
@@ -61,7 +62,7 @@ export const Home = () => {
       </div>
 
       <div className={`${ style.sidebar }`}>
-      <select onChange={ handleSelect }>
+        <select onChange={ handleSelect }>
             <option disabled defaultValue>
                 Orden Alfabetico
             </option>
@@ -72,13 +73,23 @@ export const Home = () => {
                 Descendente Z a la A
             </option>
         </select>
+        <select>
+          <option>
+            Temperamentos
+          </option>
+          <option value='all'>Todos</option>
+          {
+            temps?.map( t => (
+              <option value={ t.Nombre } key={ t.id }>{ t.Nombre }</option>
+            ))
+          }
+        </select>
       </div>
 
       <div className={`${ style.main }`}>
         <h3 className={`${ style.titulo }`}>Listado de razas de Perro</h3>
           {
             pageDogs?.map( (dog) => {
-              console.log(dog.Temperamento)
               return(
                 <Card key={dog.id} image={dog.Imagen} nombre={dog.Nombre} peso={dog.Peso[0]} temperamento={ dog.Temperamento }/>
               )

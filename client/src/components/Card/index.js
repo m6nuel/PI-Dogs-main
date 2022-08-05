@@ -10,16 +10,15 @@ export const Card = ({image, nombre, peso, temperamento}) => {
           </div>
           <p>{nombre}</p>
           <p>
-            <ul>
-
-            {
-              temperamento.map( (t,i) => (
-                <li>
+            {temperamento}
+            {/* {
+              temperamento.map( (t) => (
+                <li key={t.id}>
                   {t}
                 </li>
               ))
-            }
-            </ul>
+            } */}
+    
           </p>
           <p>Peso: {peso} Kg</p>
         </div>
