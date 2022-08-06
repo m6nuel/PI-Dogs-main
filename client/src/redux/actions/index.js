@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FILTER_TEMPS, GET_ALL_DOGS, GET_ALL_TEMPERAMENTS, ORDER_ALPH, SEARCH_DOGS } from '../types';
+import { FILTER_TEMPS, FILTER_WEIGHT, GET_ALL_DOGS, GET_ALL_TEMPERAMENTS, ORDER_ALPH, SEARCH_DOGS } from '../types';
 
 const url = 'http://localhost:3001';
 
@@ -50,6 +50,13 @@ export const orderAlpha = ( payload ) => {
 export const filterTemps = ( payload ) => {
   return {
     type: FILTER_TEMPS,
+    payload
+  }
+}
+
+export const filterWeight = ( payload ) => {
+  return {
+    type: FILTER_WEIGHT,
     payload
   }
 }

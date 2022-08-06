@@ -1,4 +1,4 @@
-import { FILTER_TEMPS, GET_ALL_DOGS, GET_ALL_TEMPERAMENTS, ORDER_ALPH, SEARCH_DOGS } from "../types";
+import { FILTER_TEMPS, FILTER_WEIGHT, GET_ALL_DOGS, GET_ALL_TEMPERAMENTS, ORDER_ALPH, SEARCH_DOGS } from "../types";
 
 const initialState = {
     dogs: [],
@@ -69,7 +69,32 @@ export default function rootReducers  ( state = initialState, { type, payload } 
                 ...state,
                 dogs: filterTemps
             }
-            
+        case FILTER_WEIGHT:
+            const filterWeight = ( payload === 'min' )
+                    ?
+                state.auxDogs.sort((a, b) => {
+                    if (parseInt(a.weight[0]) > parseInt(b.weight[0])) {
+                        return 1;
+                    }
+                    if (parseInt(b.weight[0]) > parseInt(a.weight[0])) {
+                        return -1;
+                    }
+                    return 0
+                })
+                    :
+                state.auxDogs.sort((a,b) => {
+                    if (parseInt(a.weight[0]) > parseInt(b.weight[0])) {
+                        return -1;
+                    }
+                    if (parseInt(b.weight[0]) > parseInt(a.weight[0])) {
+                        return 1;
+                    }
+                    return 0
+                })
+                return {
+                    ...state,
+                    dogs: filterWeight
+                }
     
         default:
             return state;

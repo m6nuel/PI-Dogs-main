@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { SearchDogs } from '../SearchDogs';
 import { 
   filterTemps,
+  filterWeight,
   getAllDogs, 
   getTemperaments, 
   orderAlpha } from '../../redux/actions';
@@ -45,6 +46,11 @@ export const Home = () => {
     dispatch( filterTemps(e.target.value) );
   }
 
+  // const handleWeight = (e) => {
+  //   e.preventDefault();
+  //   dispatch( filterWeight(e.target.value) );
+  // }
+
   
   const nextPag = () => {
     if (auxDogs.length > pag + 8) {
@@ -80,7 +86,7 @@ export const Home = () => {
             </option>
         </select>
         <select onChange={ handleFilterTemps }>
-          <option>
+          <option disabled defaultValue>
             Temperamentos
           </option>
           <option value='all'>Todos</option>
@@ -89,6 +95,17 @@ export const Home = () => {
               <option value={ t.Nombre } key={ t.id }>{ t.Nombre }</option>
             ))
           }
+        </select>
+        <select defaultValue='ft'/* onChange={ handleWeight }*/>
+          <option disabled value='ft' >
+            Filtrado por Peso
+          </option>
+          <option value='max'>
+            De Mayor a Menor Peso
+          </option>
+          <option value='min'>
+            De Menor a Mayor Peso
+          </option>
         </select>
       </div>
 
