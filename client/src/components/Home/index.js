@@ -117,7 +117,7 @@ export const Home = () => {
               return(
                 <Card 
                   key={dog.id} 
-                  image={dog.Imagen} 
+                  image={dog.Imagen ? dog.Imagen : 'Imagen no encontrada'} 
                   nombre={dog.Nombre} 
                   peso={dog.Peso[0]} 
                   temperamento={ dog.Temperamento[0] ? dog.Temperamento.map( t => t.Nombre) : dog.Temperamento }/>
