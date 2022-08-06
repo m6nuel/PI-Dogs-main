@@ -70,23 +70,25 @@ export default function rootReducers  ( state = initialState, { type, payload } 
                 dogs: filterTemps
             }
         case FILTER_WEIGHT:
+            console.log(state.auxDogs)
             const filterWeight = ( payload === 'min' )
                     ?
                 state.auxDogs.sort((a, b) => {
-                    if (parseInt(a.weight[0]) > parseInt(b.weight[0])) {
+                    if (parseInt(a.Peso[1]) > parseInt(b.Peso[1])) {
+                        
                         return 1;
                     }
-                    if (parseInt(b.weight[0]) > parseInt(a.weight[0])) {
+                    if (parseInt(b.Peso[1]) > parseInt(a.Peso[1])) {
                         return -1;
                     }
                     return 0
                 })
                     :
                 state.auxDogs.sort((a,b) => {
-                    if (parseInt(a.weight[0]) > parseInt(b.weight[0])) {
+                    if (parseInt(a.Peso[1]) > parseInt(b.Peso[1])) {
                         return -1;
                     }
-                    if (parseInt(b.weight[0]) > parseInt(a.weight[0])) {
+                    if (parseInt(b.Peso[1]) > parseInt(a.Peso[1])) {
                         return 1;
                     }
                     return 0

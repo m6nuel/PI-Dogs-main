@@ -46,10 +46,11 @@ export const Home = () => {
     dispatch( filterTemps(e.target.value) );
   }
 
-  // const handleWeight = (e) => {
-  //   e.preventDefault();
-  //   dispatch( filterWeight(e.target.value) );
-  // }
+  const handleWeight = (e) => {
+    e.preventDefault();
+    dispatch( filterWeight(e.target.value) );
+    setOrden(`Ordenado ${e.target.value}`)
+  }
 
   
   const nextPag = () => {
@@ -96,7 +97,7 @@ export const Home = () => {
             ))
           }
         </select>
-        <select defaultValue='ft'/* onChange={ handleWeight }*/>
+        <select defaultValue='ft' onChange={ handleWeight }>
           <option disabled value='ft' >
             Filtrado por Peso
           </option>
@@ -119,7 +120,7 @@ export const Home = () => {
                   image={dog.Imagen} 
                   nombre={dog.Nombre} 
                   peso={dog.Peso[0]} 
-                  temperamento={ dog.Temperamento[0].Nombre ? dog.Temperamento.map( t => t.Nombre) : dog.Temperamento }/>
+                  temperamento={ dog.Temperamento[0] ? dog.Temperamento.map( t => t.Nombre) : dog.Temperamento }/>
               )
             })            
           }
