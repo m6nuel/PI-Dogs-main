@@ -10,6 +10,7 @@ import {
   getTemperaments, 
   orderAlpha } from '../../redux/actions';
 import { Paginate } from '../Paginate';
+import { Link } from 'react-router-dom';
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -115,12 +116,17 @@ export const Home = () => {
           {
             pageDogs?.map( (dog) => {
               return(
-                <Card 
-                  key={dog.id} 
-                  image={dog.Imagen ? dog.Imagen : 'Imagen no encontrada'} 
-                  nombre={dog.Nombre} 
-                  peso={dog.Peso[0]} 
-                  temperamento={ dog.Temperamento[0] ? dog.Temperamento.map( t => t.Nombre) : dog.Temperamento }/>
+                <div key={dog.id}>
+                  <Link to={'/detail/'+dog.id}>
+                    <Card 
+                      key={dog.id} 
+                      image={dog.Imagen ? dog.Imagen : 'Imagen no encontrada'} 
+                      nombre={dog.Nombre} 
+                      peso={dog.Peso[0]} 
+                      temperamento={ dog.Temperamento[0] ? dog.Temperamento.map( t => t.Nombre) : dog.Temperamento }
+                      />
+                  </Link>
+                </div>
               )
             })            
           }

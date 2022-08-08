@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FILTER_TEMPS, FILTER_WEIGHT, GET_ALL_DOGS, GET_ALL_TEMPERAMENTS, ORDER_ALPH, SEARCH_DOGS } from '../types';
+import { DETAILS, FILTER_TEMPS, FILTER_WEIGHT, GET_ALL_DOGS, GET_ALL_TEMPERAMENTS, ORDER_ALPH, SEARCH_DOGS } from '../types';
 
 const url = 'http://localhost:3001';
 
@@ -58,5 +58,21 @@ export const filterWeight = ( payload ) => {
   return {
     type: FILTER_WEIGHT,
     payload
+  }
+}
+
+export const details = ({id}) => {
+  return async (dispatch) =>{
+    try {
+      var detail = await axios.get(`${url}/dog/${id}`);
+      console.log(detail)
+      console.log(id)
+      return dispatch({
+        type: DETAILS,
+        payload: detail.data
+      })
+    } catch (e) {
+      console.log(e)
+    }
   }
 }

@@ -1,9 +1,10 @@
-import { FILTER_TEMPS, FILTER_WEIGHT, GET_ALL_DOGS, GET_ALL_TEMPERAMENTS, ORDER_ALPH, SEARCH_DOGS } from "../types";
+import { DETAILS, FILTER_TEMPS, FILTER_WEIGHT, GET_ALL_DOGS, GET_ALL_TEMPERAMENTS, ORDER_ALPH, SEARCH_DOGS } from "../types";
 
 const initialState = {
     dogs: [],
     temperaments: [],
-    auxDogs: []
+    auxDogs: [],
+    dogDetail: []
 };
 
 export default function rootReducers  ( state = initialState, { type, payload } ) {
@@ -64,13 +65,11 @@ export default function rootReducers  ( state = initialState, { type, payload } 
                     
                 }
             }
-            console.log(filterTemps)
             return {
                 ...state,
                 dogs: filterTemps
             }
         case FILTER_WEIGHT:
-            console.log(state.auxDogs)
             const filterWeight = ( payload === 'min' )
                     ?
                 state.auxDogs.sort((a, b) => {
@@ -96,6 +95,11 @@ export default function rootReducers  ( state = initialState, { type, payload } 
                 return {
                     ...state,
                     dogs: filterWeight
+                }
+            case DETAILS:
+                return {
+                    ...state,
+                    dogDetail: payload
                 }
     
         default:
