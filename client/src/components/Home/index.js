@@ -109,6 +109,11 @@ export const Home = () => {
             De Menor a Mayor Peso
           </option>
         </select>
+        <Link to={'/newdog'}>
+          <button>
+            Crear Raza
+          </button>
+        </Link>
       </div>
 
       <div className={`${ style.main }`}>
