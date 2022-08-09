@@ -15,6 +15,8 @@
 
 .sidebar:nth-child(2) {
     grid-row: 2 / span 2;
+    display: grid;
+    grid-template-rows:  1fr 1fr 1fr 1fr;
 }
 
 .main:nth-child(3) {

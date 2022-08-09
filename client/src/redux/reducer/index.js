@@ -62,7 +62,6 @@ export default function rootReducers  ( state = initialState, { type, payload } 
                     if (filter) {
                         filterTemps.push(allDogs[i]);
                     }
-                    
                 }
             }
             return {
