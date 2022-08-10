@@ -19,14 +19,14 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     Altura: {
-      type: DataTypes.STRING,
+      type: DataTypes.ARRAY( DataTypes.STRING ),
       allowNull: false
     },
     Peso: {
-      type: DataTypes.STRING,
+      type: DataTypes.ARRAY( DataTypes.STRING ),
       allowNull: false
     },
-    AñosDeVida: {
+    A_vida: {
       type: DataTypes.STRING,
     },
     Image: {

@@ -76,3 +76,10 @@ export const details = ({id}) => {
     }
   }
 }
+
+export const createDog = ( payload ) => {
+  return async () => {
+    const newDog = await axios.post(`${url}/dogs`, payload);
+    return newDog;
+  }
+}

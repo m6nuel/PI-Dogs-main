@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getTemperaments } from '../../redux/actions';
+import { createDog, getTemperaments } from '../../redux/actions';
 
 const validate = ( form ) => {
   let errors = {}
@@ -36,14 +36,14 @@ export const NewDog = () => {
   })
 
   const [form, setForm] = useState({
-    nombre: '',
-    a_min: '',
-    a_max: '',
-    p_min: '',
-    p_max: '',
-    a_vida: '',
-    image: '',
-    temperaments: []
+    Nombre: '',
+    A_min: '',
+    A_max: '',
+    P_min: '',
+    P_max: '',
+    A_vida: '',
+    Image: '',
+    Temperaments: []
   })
 
   useEffect(() => {
@@ -51,23 +51,25 @@ export const NewDog = () => {
   }, [dispatch])
 
   useEffect(() => {
-    if (form.nombre.length > 0 && form.a_min > 0 && form.a_max.length > 0 && form.p_min.length > 0 && form.p_max >0 )
+    if (form.Nombre.length > 0 && form.A_min > 0 && form.A_max.length > 0 && form.P_min.length > 0 && form.P_max >0 )
       setButton( false )
     else setButton( true )
   }, [form, setButton])
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(form);
+    dispatch( createDog(form) );
+    alert('Se creo una nueva raza de perro')
+    console.log(form)
     setForm({
-      nombre: '',
-      a_min: '',
-      a_max: '',
-      p_min: '',
-      p_max: '',
-      a_vida: '',
-      image: '',
-      temperaments: []
+      Nombre: '',
+      A_min: '',
+      A_max: '',
+      P_min: '',
+      P_max: '',
+      A_vida: '',
+      Image: '',
+      Temperaments: []
     })
   }
 
@@ -85,7 +87,7 @@ export const NewDog = () => {
   const handleSelect = (e) => {
     setForm({
       ...form,
-      temperaments: [ ...form.temperaments, e.target.value ]
+      Temperaments: [ ...form.Temperaments, e.target.value ]
     })
   }
 
@@ -96,7 +98,7 @@ export const NewDog = () => {
         <div>
           Nombre
           <div>
-            <input type='text' value={form.nombre} name='nombre' onChange={ (e) => handleChange(e) } placeholder='Nombre de la nueva Raza' />
+            <input type='text' value={form.Nombre} name='Nombre' onChange={ (e) => handleChange(e) } placeholder='Nombre de la nueva Raza' />
           </div>
         </div>
         <div>{ errors.nombre && <p> { errors.nombre } </p> }</div>
@@ -104,10 +106,10 @@ export const NewDog = () => {
         <div>
           altura
           <div>
-            <input type='text' value={ form.a_min } name='a_min' onChange={ handleChange } placeholder='Altura Minima' />
+            <input type='text' value={ form.A_min } name='A_min' onChange={ handleChange } placeholder='Altura Minima' />
           </div>
           <div>
-            <input type='text' value={ form.a_max } name='a_max' onChange={ handleChange } placeholder='Altura Maxima' />
+            <input type='text' value={ form.A_max } name='A_max' onChange={ handleChange } placeholder='Altura Maxima' />
           </div>
         </div>
         <div> { errors.altura && <p> { errors.altura } </p> } </div>
@@ -115,10 +117,10 @@ export const NewDog = () => {
         <div>
           Peso
           <div>
-            <input type='text' value={ form.p_min } name='p_min' onChange={ handleChange } placeholder='Peso Minimo'/>
+            <input type='text' value={ form.P_min } name='P_min' onChange={ handleChange } placeholder='Peso Minimo'/>
           </div>
           <div>
-            <input type='text' value={ form.p_max } name='p_max' onChange={ handleChange } placeholder='Peso Maximo'/>
+            <input type='text' value={ form.P_max } name='P_max' onChange={ handleChange } placeholder='Peso Maximo'/>
           </div>
         </div>
         <div> { errors.peso && <p> { errors.peso } </p> } </div>
@@ -126,13 +128,13 @@ export const NewDog = () => {
         <div>
           Tiempo de Vida
           <div>
-            <input type='text' value={ form.a_vida } name='a_vida' onChange={ handleChange } placeholder='ejm: 10 - 12 years'/>
+            <input type='text' value={ form.A_vida } name='A_vida' onChange={ handleChange } placeholder='ejm: 10 - 12 years'/>
           </div>
         </div>
         <div> { errors.a_vida && <p> { errors.a_vida } </p> } </div>
 
         <div>
-          <input type='text' value={ form.image } name='image' onChange={ handleChange } placeholder='URL de la imagen' />
+          <input type='text' value={ form.Image } name='Image' onChange={ handleChange } placeholder='URL de la imagen' />
         </div>
 
         <div>
@@ -154,7 +156,7 @@ export const NewDog = () => {
 
         <div>
           {
-            form.temperaments?.map( t => (
+            form.Temperaments?.map( t => (
               <div key={t}>
                 <p> { `${t}` } </p>
               </div>

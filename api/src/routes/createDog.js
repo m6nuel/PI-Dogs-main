@@ -4,20 +4,47 @@ const { Raza, Temperamento } = require('../db');
 const router = Router();
 
 router.post('/', async ( req, res ) => {
-    let { Nombre, Altura, Peso, AñosDeVida, Image } = req.body;
+    let { 
+        Nombre, 
+        A_min, 
+        A_max, 
+        P_min, 
+        P_max, 
+        A_vida, 
+        Temperament, 
+        Image
+    } = req.body;
 
-    try {
-        const newRaza = await Raza.create({
-            Nombre, 
-            Altura,
-            Peso, 
-            AñosDeVida, 
-            Image
-        })
-        res.json(newRaza);
-    } catch (e) {
-        res.send(e);
-    }
+    const arrAlt = [];
+    const Amin = A_min;
+    const Amax = A_max;
+    arrAlt.push(Amin,Amax);
+
+    const arrPeso = []
+    const Pmin = P_min;
+    const Pmax = P_max;
+    arrPeso.push(Pmin, Pmax)
+
+    let newRaza = await Raza.create({
+        Nombre, 
+        Altura: arrAlt,
+        Peso: arrPeso, 
+        A_vida, 
+        Image,
+        Temperament
+    })
+    
+    // let associatedTem = await Temperamento.findAll({
+    //     where: { Nombre }
+    // })
+    
+
+    // newRaza.addTemperament( associatedTem );
+
+    res.status(200).json(newRaza);
+
+
+
     
 });
 
