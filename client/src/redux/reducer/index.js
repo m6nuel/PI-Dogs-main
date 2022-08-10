@@ -59,6 +59,7 @@ export default function rootReducers  ( state = initialState, { type, payload } 
             } else {
                 for (let i = 0; i < allDogs.length; i++) {
                     let filter = allDogs[i].Temperamento.find( t => t === payload );
+                    console.log(filter)
                     if (filter) {
                         filterTemps.push(allDogs[i]);
                     }
