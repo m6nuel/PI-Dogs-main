@@ -63,3 +63,7 @@
     justify-items: center;
     max-height: 50vh;
 }
+
+.paginacion button {
+    float: left;
+}

@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { createDog, getTemperaments } from '../../redux/actions';
+import style from './newDog.module.css';
 
 const validate = ( form ) => {
   let errors = {}
-  if ( !form.nombre ) {
+  if ( !form.Nombre ) {
     errors.nombre = 'El nombre es obligatorio'
   }
-  if ( !form.a_min || !form.a_max ) {
+  if ( !form.A_min || !form.A_max ) {
     errors.altura = 'La altura es requerida'
   }
-  if ( !form.p_min || !form.p_max ) {
+  if ( !form.P_min || !form.P_max ) {
     errors.peso = 'El peso es requerido'  
   }
-  if (!form.a_vida) {
+  if (!form.A_vida) {
     errors.a_vida = 'Agregar los años de vida es necesario como en el ejemplo'
   }
   return errors;
@@ -92,46 +93,47 @@ export const NewDog = () => {
   }
 
   return (
-    <div>
-      <form id='form' onSubmit={ handleSubmit }>
+    <div className={`${ style.newDog }`}>
+      <form className={`${ style.form }`} id='form' onSubmit={ handleSubmit }>
+        <h2> Crear nueva raza de Perro </h2>
 
-        <div>
-          Nombre
-          <div>
-            <input type='text' value={form.Nombre} name='Nombre' onChange={ (e) => handleChange(e) } placeholder='Nombre de la nueva Raza' />
-          </div>
+        <div className={`${ style.nombre }`}>
+          <input type='text' value={form.Nombre} name='Nombre' onChange={ (e) => handleChange(e) } placeholder='Nombre de la nueva Raza' />
+        <div className={`${ style.error }`}>{ errors.nombre && <p> { errors.nombre } </p> }</div>
         </div>
-        <div>{ errors.nombre && <p> { errors.nombre } </p> }</div>
+
         
-        <div>
-          altura
-          <div>
+        <div className={`${ style.altura }`}>
+          <label>
+            Altura: 
+          </label>
             <input type='text' value={ form.A_min } name='A_min' onChange={ handleChange } placeholder='Altura Minima' />
-          </div>
-          <div>
+            <span> cm </span>
             <input type='text' value={ form.A_max } name='A_max' onChange={ handleChange } placeholder='Altura Maxima' />
-          </div>
+            <span> cm </span>
+        <div className={`${ style.error }`}> { errors.altura && <p> { errors.altura } </p> } </div>
         </div>
-        <div> { errors.altura && <p> { errors.altura } </p> } </div>
       
-        <div>
-          Peso
-          <div>
+        <div className={`${ style.peso }`}>
+          <label>
+            Peso
+          </label>
             <input type='text' value={ form.P_min } name='P_min' onChange={ handleChange } placeholder='Peso Minimo'/>
-          </div>
-          <div>
+
             <input type='text' value={ form.P_max } name='P_max' onChange={ handleChange } placeholder='Peso Maximo'/>
-          </div>
+
+        <div className={`${ style.error }`}> { errors.peso && <p> { errors.peso } </p> } </div>
         </div>
-        <div> { errors.peso && <p> { errors.peso } </p> } </div>
 
         <div>
-          Tiempo de Vida
-          <div>
+          <label>
+            Tiempo de Vida:
+          </label>
+
             <input type='text' value={ form.A_vida } name='A_vida' onChange={ handleChange } placeholder='ejm: 10 - 12 years'/>
-          </div>
+
+        <div className={`${ style.error }`}> { errors.a_vida && <p> { errors.a_vida } </p> } </div>
         </div>
-        <div> { errors.a_vida && <p> { errors.a_vida } </p> } </div>
 
         <div>
           <input type='text' value={ form.Image } name='Image' onChange={ handleChange } placeholder='URL de la imagen' />

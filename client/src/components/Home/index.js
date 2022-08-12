@@ -122,7 +122,7 @@ export const Home = () => {
             pageDogs?.map( (dog) => {
               return(
                 <div className={`${ style.card }`} key={dog.id}>
-                  <Link className={`${style.link}`} to={'/detail/'+dog.id}>
+                  <Link key={dog.id} className={`${style.link}`} to={'/detail/'+dog.id}>
                     <Card 
                       key={dog.id} 
                       image={dog.Imagen ? dog.Imagen : 'Imagen no encontrada'} 

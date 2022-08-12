@@ -1,0 +1,36 @@
+.newDog {
+    background-color: rgb(170, 170, 170);
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 0.5fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    height: 100vh;
+}
+
+.form {
+    display: grid;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    grid-template-rows: repeat(7, 1fr);
+    height: 90vh;
+    border: 1px solid black;
+}
+
+input {
+    background: transparent;
+    width: auto;
+    border-top: none;
+    border-right: none;  
+}
+
+.altura input {
+    width: 25%;
+}
+
+.peso input { 
+    width: 25%;
+}
+
+.error {
+    color: red;
+}
+

@@ -14,8 +14,8 @@ export const Paginate = ({dogsPag, dogs, pags, auxDogs}) => {
 
             <ul>
                 {
-                    pagNumb && pagNumb.map( num => (
-                        <li className={`${ style.li }`} onClick={() => pags(num)} key={num}>
+                    pagNumb && pagNumb.map( (num, i )=> (
+                        <li className={`${ style.li }`} onClick={() => pags(num)} key={i}>
                             <button type='button'>
                                 {num}
                             </button>
