@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { details } from '../../redux/actions';
-import style from './detail.module.css'
+import style from './detail.module.css';
+import { Link } from 'react-router-dom';
 
 
 export const DetailDog = () => {
@@ -42,7 +43,17 @@ export const DetailDog = () => {
 
       <div className={`${style.target}`}>      
         <div className={`${ style.image }`}>
-          <img src={ image } alt={ nombre }/>
+          <div>
+            <img src={ image } alt={ nombre }/>
+          </div>
+
+          <div className={`${ style.bhome }`}>
+            <Link to='/home'>
+              <button>
+                Volver a Home
+              </button>
+            </Link>
+          </div>
         </div>
 
         <div className={`${ style.info }`}>

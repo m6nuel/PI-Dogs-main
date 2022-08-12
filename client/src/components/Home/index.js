@@ -110,7 +110,7 @@ export const Home = () => {
           </option>
         </select>
         <Link to={'/newdog'}>
-          <button>
+          <button className={`${ style.select }`}>
             Crear Raza
           </button>
         </Link>

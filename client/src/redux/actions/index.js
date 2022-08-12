@@ -65,8 +65,7 @@ export const details = ({id}) => {
   return async (dispatch) =>{
     try {
       var detail = await axios.get(`${url}/dog/${id}`);
-      console.log(detail)
-      console.log(id)
+
       return dispatch({
         type: DETAILS,
         payload: detail.data
