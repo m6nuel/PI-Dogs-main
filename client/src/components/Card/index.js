@@ -9,15 +9,10 @@ export const Card = ({image, nombre, peso, temperamento}) => {
             <img src={image} alt='imagen'/>
           </div>
           <p>{nombre}</p>
-          <p>
-            {temperamento}
-            {/* {
-              temperamento.map( (t) => (
-                <li key={t.id}>
-                  {t}
-                </li>
-              ))
-            } */}
+          <p>Temperamentos: 
+            {
+              temperamento.map((t) => <div key={t+Math.random()}>{t}</div>)
+            }
     
           </p>
           <p>Peso: {peso} Kg</p>

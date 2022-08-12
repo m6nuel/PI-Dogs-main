@@ -22,7 +22,7 @@ export const Home = () => {
   const lastIndex = pag * dogsPag;
   const firstIndex = lastIndex - dogsPag;
   const pageDogs = auxDogs.slice( firstIndex, lastIndex );
-  
+
   const pags = (num) => {
     setPag(num)
   }
@@ -76,7 +76,7 @@ export const Home = () => {
       </div>
 
       <div className={`${ style.sidebar }`}>
-        <select onChange={ handleSelect }>
+        <select className={`${ style.select }`} onChange={ handleSelect }>
             <option disabled defaultValue>
                 Orden Alfabetico
             </option>
@@ -87,7 +87,7 @@ export const Home = () => {
                 Descendente Z a la A
             </option>
         </select>
-        <select onChange={ handleFilterTemps }>
+        <select className={`${ style.select }`} onChange={ handleFilterTemps }>
           <option disabled defaultValue>
             Temperamentos
           </option>
@@ -98,7 +98,7 @@ export const Home = () => {
             ))
           }
         </select>
-        <select defaultValue='ft' onChange={ handleWeight }>
+        <select className={`${ style.select }`} defaultValue='ft' onChange={ handleWeight }>
           <option disabled value='ft' >
             Filtrado por Peso
           </option>
@@ -121,8 +121,8 @@ export const Home = () => {
           {
             pageDogs?.map( (dog) => {
               return(
-                <div key={dog.id}>
-                  <Link to={'/detail/'+dog.id}>
+                <div className={`${ style.card }`} key={dog.id}>
+                  <Link className={`${style.link}`} to={'/detail/'+dog.id}>
                     <Card 
                       key={dog.id} 
                       image={dog.Imagen ? dog.Imagen : 'Imagen no encontrada'} 
