@@ -54,18 +54,18 @@ export const Home = () => {
   }
 
   
-  const nextPag = () => {
-    if (auxDogs.length > pag + 8) {
-      setPag( pag + 8 );
-    }
-  }
+  // const nextPag = () => {
+  //   if (auxDogs.length > pag + 8) {
+  //     setPag( pag + 8 );
+  //   }
+  // }
 
-  const antPag = () => {
-    if (pag < 8) {
-      return
-    }
-    setPag( pag - 8 );
-  }
+  // const antPag = () => {
+  //   if (pag < 8) {
+  //     return
+  //   }
+  //   setPag( pag - 8 );
+  // }
 
 
 
@@ -119,10 +119,10 @@ export const Home = () => {
       <div className={`${ style.main }`}>
         <h3 className={`${ style.titulo }`}>Listado de razas de Perro</h3>
           {
-            pageDogs?.map( (dog) => {
+            pageDogs?.map( (dog,i) => {
               return(
-                <div className={`${ style.card }`} key={dog.id}>
-                  <Link key={dog.id} className={`${style.link}`} to={'/detail/'+dog.id}>
+                <div className={`${ style.card }`} key={i}>
+                  <Link key={i} className={`${style.link}`} to={'/detail/'+dog.id}>
                     <Card 
                       key={dog.id} 
                       image={dog.Imagen ? dog.Imagen : 'Imagen no encontrada'} 
@@ -136,21 +136,13 @@ export const Home = () => {
             })            
           }
         <div className={`${ style.paginacion }`}>
-          <button
-            onClick={ antPag }
-          >
-            anterior
-          </button>
+
           <Paginate dogsPag={ dogsPag } dogs={ auxDogs.length } pags={ pags } />
-          <button
-            onClick={ nextPag }
-          >
-            Siguiente
-          </button>
+
         </div>  
       </div>
       <div className={`${style.footer}`}>
-        footer
+      <span>©&nbsp;</span>Creado por Jesus Delgado - 2022
       </div>
     </div>
   )

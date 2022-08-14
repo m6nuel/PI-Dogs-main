@@ -1,5 +1,7 @@
 .newDog {
-    background-color: rgb(170, 170, 170);
+    /* background-color: rgb(170, 170, 170); */
+    background: rgb(2,0,36);
+    background: radial-gradient(circle, rgba(2,0,36,1) 7%, rgba(82,141,195,1) 42%, rgba(0,212,255,1) 80%, rgba(0,197,240,1) 100%);
     display: grid;
     grid-template-columns: 0.5fr 1fr 0.5fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -13,13 +15,24 @@
     grid-template-rows: repeat(7, 1fr);
     height: 90vh;
     border: 1px solid black;
+    border-radius: 5px;
 }
 
 input {
-    background: transparent;
+    background: rgb(180, 235, 255);
+    color: black;
     width: auto;
-    border-top: none;
-    border-right: none;  
+    height: 4vh;
+    border: none;
+    border-radius: 5px;
+}
+
+input:hover {
+    background-color: rgb(208, 238, 249);
+}
+
+input:focus {
+    background-color: black;
 }
 
 .altura input {

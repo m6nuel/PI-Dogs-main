@@ -2,3 +2,16 @@
     list-style: none;
     float: left;    
 }
+
+.li button {
+    background-color: rgba(82,141,195,1);
+    color: rgb(0, 0, 0);
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.li button:hover {
+    background-color: azure;
+}

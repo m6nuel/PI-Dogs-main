@@ -1,8 +1,7 @@
 import React from 'react';
 import style from './paginate.module.css';
 
-export const Paginate = ({dogsPag, dogs, pags, auxDogs}) => {
-    // const [pag, setPag] = useState(1);
+export const Paginate = ({dogsPag, dogs, pags}) => {
     const pagNumb = [];
     for (let i = 1; i < Math.ceil(dogs / dogsPag); i++) {
         pagNumb.push(i);        

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { searchDogs } from '../../redux/actions';
+import style from './search.module.css'
 
 export const SearchDogs = () => {
     const [search, setSearch] = useState('');
@@ -16,7 +17,7 @@ export const SearchDogs = () => {
     }
 
     return (
-        <div>
+        <div className={`${ style.search }`}>
             <input type='text' onChange={ handleChange } placeholder='Busqueda de perros por Razas'/>
             <button type='submit' onClick={ handleSubmit }>
                 Buscar
