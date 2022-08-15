@@ -54,20 +54,6 @@ export const Home = () => {
   }
 
   
-  // const nextPag = () => {
-  //   if (auxDogs.length > pag + 8) {
-  //     setPag( pag + 8 );
-  //   }
-  // }
-
-  // const antPag = () => {
-  //   if (pag < 8) {
-  //     return
-  //   }
-  //   setPag( pag - 8 );
-  // }
-
-
 
   return (
     <div className={`${ style.contenedor }`}>
@@ -124,11 +110,11 @@ export const Home = () => {
                 <div className={`${ style.card }`} key={i}>
                   <Link key={i} className={`${style.link}`} to={'/detail/'+dog.id}>
                     <Card 
-                      key={dog.id} 
+                      key={i} 
                       image={dog.Imagen ? dog.Imagen : 'Imagen no encontrada'} 
-                      nombre={dog.Nombre} 
-                      peso={dog.Peso[0]} 
-                      temperamento={ dog.Temperamento[0].Nombre ? dog.Temperamento.map( (t, i) =>  <h3 key={i} >{ t }</h3>) : dog.Temperamento }
+                      nombre={dog.Nombre ? dog.Nombre : 'Nombre no encontrado'} 
+                      peso={dog.Peso[0] ? dog.Peso[0] : 'Peso N/A'} 
+                      temperamento={ dog.Temperamento[0] ? dog.Temperamento.map( (t, i) =>  <span key={i} >{ t }</span>) : dog.Temperamento }
                       />
                   </Link>
                 </div>
@@ -142,7 +128,7 @@ export const Home = () => {
         </div>  
       </div>
       <div className={`${style.footer}`}>
-      <span>©&nbsp;</span>Creado por Jesus Delgado - 2022
+      Creado por <span>©&nbsp;</span> Jesus Delgado - 2022
       </div>
     </div>
   )

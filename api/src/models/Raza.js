@@ -5,14 +5,10 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('Raza', {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
-      autoIncrement: true,
       allowNull: false,
-      unique: 'productIdUnique',
-      get(){
-        return `${this.getDataValue('id')}-db`
-      }
     },
     Nombre: {
       type: DataTypes.STRING,

@@ -16,7 +16,6 @@ export const Card = ({image, nombre, peso, temperamento}) => {
               {
                 temperamento.map((t,i) => <h4 key={i}>{t}</h4>)
               }
-
             </div>
           </div>
         </div>
