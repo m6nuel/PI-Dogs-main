@@ -15,9 +15,25 @@ export const LandingPage = () => {
 
   return (
     <div className={`${style.container}`}>
-      <Link to="/home">
-        <button className={`${style.boton}`}> Guau a Home</button>
-      </Link>
+    
+      <div className={`${ style.img1 }`}>
+      </div>
+
+      <div className={`${ style.img2 }`}>
+      </div>
+  
+      <div className={`${style.boton}`}>
+        <Link to="/home">
+          <button> Guau a Home</button>
+        </Link>
+      </div>
+      
+      <div className={`${ style.img3 }`}>
+      </div>
+      
+      <div className={`${ style.img4 }`}>
+      </div>
+
     </div>
   )
 }

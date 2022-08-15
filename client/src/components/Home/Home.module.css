@@ -2,7 +2,7 @@
     /* background-image: url("../LandingPage/imagen/20098-perritos.jpg"); */
     /* background-color: rgb(170, 170, 170); */
     background: rgb(0,212,255);
-background: radial-gradient(circle, rgba(0,212,255,1) 19%, rgba(0,197,240,1) 23%, rgba(82,160,195,1) 35%, rgba(0,33,36,1) 97%);
+    background: radial-gradient(circle, rgba(0,212,255,1) 19%, rgba(0,197,240,1) 23%, rgba(82,160,195,1) 35%, rgba(0,33,36,1) 97%);
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;    
