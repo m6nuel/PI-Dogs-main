@@ -142,7 +142,7 @@ export const NewDog = () => {
         <div>
           Seleccionar Temperamentos
           <div>
-            <select defaultValue='temp' onChange={ handleSelect }>
+            <select className={`${ style.select }`} defaultValue='temp' onChange={ handleSelect }>
               <option disabled value='temp' >
                 Temperamentos
               </option>

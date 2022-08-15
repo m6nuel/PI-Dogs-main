@@ -128,7 +128,7 @@ export const Home = () => {
                       image={dog.Imagen ? dog.Imagen : 'Imagen no encontrada'} 
                       nombre={dog.Nombre} 
                       peso={dog.Peso[0]} 
-                      temperamento={ dog.Temperamento ? dog.Temperamento.map( t => t.Nombre) : dog.Temperamento }
+                      temperamento={ dog.Temperamento[0].Nombre ? dog.Temperamento.map( (t, i) =>  <h3 key={i} >{ t }</h3>) : dog.Temperamento }
                       />
                   </Link>
                 </div>

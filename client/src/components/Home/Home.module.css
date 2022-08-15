@@ -57,6 +57,14 @@ background: radial-gradient(circle, rgba(0,212,255,1) 19%, rgba(0,197,240,1) 23%
     cursor: pointer;
 }
 
+.sidebar .select:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+.sidebar:hover {
+    border-color: antiquewhite;
+}
+
 option {
     background-color: rgba(82,141,195,1);
     border-radius: 5%;
