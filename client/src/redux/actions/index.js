@@ -1,11 +1,12 @@
-import axios from 'axios';
+// import axios from 'axios';
+import { apiDog } from '../../components/api';
 import { DETAILS, FILTER_TEMPS, FILTER_WEIGHT, GET_ALL_DOGS, GET_ALL_TEMPERAMENTS, ORDER_ALPH, SEARCH_DOGS } from '../types';
 
-const url = 'http://localhost:3001';
+// const url = 'http://localhost:3001';
 
 export const getAllDogs = () => {
   return async (dispatch) => {
-    let dogs = await axios.get(`${url}/dogs`);
+    let dogs = await apiDog.get(`/dogs`);
 
     return dispatch({
       type: GET_ALL_DOGS,
@@ -16,7 +17,7 @@ export const getAllDogs = () => {
 
 export const getTemperaments = () => {
   return async (dispatch) => {
-    let Temperaments = await axios.get(`${url}/dogs/temperaments`);
+    let Temperaments = await apiDog.get(`/dogs/temperaments`);
     let temps = Temperaments.data.filter( temp => temp.Nombre !== '' );
 
     return dispatch({
@@ -29,7 +30,7 @@ export const getTemperaments = () => {
 export const searchDogs = (raza) => {
   return async (dispatch) => {
     try {
-      let dogs = await axios.get(`${url}/dog?name=${raza}`);
+      let dogs = await apiDog.get(`/dog?name=${raza}`);
       return dispatch({
         type: SEARCH_DOGS,
         payload: dogs.data
@@ -64,7 +65,7 @@ export const filterWeight = ( payload ) => {
 export const details = ({id}) => {
   return async (dispatch) =>{
     try {
-      var detail = await axios.get(`${url}/dog/${id}`);
+      var detail = await apiDog.get(`/dog/${id}`);
 
       return dispatch({
         type: DETAILS,
@@ -78,7 +79,7 @@ export const details = ({id}) => {
 
 export const createDog = ( payload ) => {
   return async () => {
-    const newDog = await axios.post(`${url}/dogs`, payload);
+    const newDog = await apiDog.post(`/dogs`, payload);
     return newDog;
   }
 }
